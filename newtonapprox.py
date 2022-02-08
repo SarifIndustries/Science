@@ -8,6 +8,7 @@
 # 2. Instead of entering derivative, try using calculated derivative.
 # 3. Choose approximation steps and what derivative function to use.
 # 3. Run program and enter your guess.
+#
 
 def f(x):
 	return (
@@ -15,19 +16,16 @@ def f(x):
 		x * x * x - 100
 	)
 
-
 def defined_df(x):
 	return (
 		# Enter derivative here:
 		3 * x * x
 	)
 
-
 # Use instead of defined derivative.
 def calculated_df(x):
 	delta = 0.000001
 	return (f(x + delta) - f(x)) / delta
-
 
 APPROXIMATION_STEPS = 8
 
@@ -41,7 +39,8 @@ def main():
 	print()
 	x = float(input("Please, enter your guess: "))
 	print("\nFollowing the winds of root...\n")
-	df = DERIVATIVE_FUNCTION 	# Select derivative function.
+	# Select derivative function.
+	df = DERIVATIVE_FUNCTION
 	# Start approximation steps
 	for i in range(APPROXIMATION_STEPS):
 		offset = f(x) / df(x) 	# How much far from true root (approximately)
