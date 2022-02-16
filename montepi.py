@@ -7,7 +7,7 @@ title="""
 """
 
 # Amount of points to drop.
-TOTAL_POINTS = 10000000
+TOTAL_POINTS = 10_000_000
 
 from random import Random
 from math import sqrt
