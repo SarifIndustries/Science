@@ -1,10 +1,21 @@
 #!/usr/bin/env python3
 
 #======================================#
-#=       MARKOV CHAIN EQUILIBRIUM     =#
+#=      MARKOV CHAIN EQUILIBRIUM      =#
 #======================================#
 # Represented by directed cyclic graph with 3 nodes.
 
+"""
+    Матрица 3х3 представляет циклический граф системы состояний.
+    Программа рассчитывает распределение вероятностей всех состояний
+    в долгосрочной перспективе тремя способами и сравнивает ответы.
+    1. Случайным обходом по цепи Маркова (статистический метод).
+    2. Повторением умножения вектора-строки распределений на матрицу системы.
+    3. Прямым вычислением собственного вектора.
+"""
+
+# import numpy as np
+# from scipy import linalg # For left eigenvector
 from random import Random
 
 
@@ -20,6 +31,11 @@ light [ {:.6f} ]
 
 screen_text_transition = """
 Phase 2. Vector transition:
+[ {:.6f}, {:.6f}, {:.6f} ]
+"""
+
+screen_text_eigenvector = """
+Phase 3. Eigenvector direct solution:
 [ {:.6f}, {:.6f}, {:.6f} ]
 """
 
@@ -87,6 +103,11 @@ def main():
         print(screen_text_transition.format(*vec))
         print("\033[5A") # Return cursor
     print(screen_text_transition.format(*vec))
+
+    # 3. Eigenvector
+    # solution vector is right eigenvector with sum = 1 eigenvalue = 1
+    sol = [25 / 71, 15 / 71, 31 / 71]
+    print(screen_text_eigenvector.format(*sol))
 
 #================================================
 
